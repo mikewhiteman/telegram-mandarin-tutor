@@ -6,6 +6,6 @@ class ChatgptAgent:
         self.top_p = top_p
         self.frequency_penalty = frequency_penalty
         self.presence_penality = presence_penalty
-        self.base_persona = 'Hi ChatGPT - test123'
+        self.base_prompt = [{"role": "system", "content": "Hi ChatGPT!"}]
         
 
