@@ -44,22 +44,25 @@ def voice_to_text(message: telebot.types.Message) -> str:
     with sr.AudioFile("voice_message.wav") as source:
         audio_data = r.record(source)
         text = r.recognize_google(audio_data, language="zh-CN")
+        print(f"Converted audio to the following text: {text}")
 
     # Clean-up text files
     os.remove("voice_message.ogg")
     os.remove("voice_message.wav")
 
-    send_message(text)
+    send_message(text, user_id)
 
     return text
 
 
-def send_message(text: str) -> str:
+def send_message(text: str, user_id: str):
     previous_messages.append({"role": "user", "content": text})
     base_prompt = openai_agent.base_prompt
     message_to_send = base_prompt + previous_messages 
 
-    response = openai.ChatCompletion.create(
+    print(f"Sending the following message to ChatGPT: {message_to_send}")
+
+    raw_response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=message_to_send,
         temperature=0.7,
@@ -69,9 +72,13 @@ def send_message(text: str) -> str:
         presence_penalty=0
     )
 
+    response = raw_response['choices'][0]['message']['content']
+    
+    print(f"ChatGPT responded with: {response}")
+
     previous_messages.append({"role":"assistant", "content": response})
 
-    return response['choices'][0]['message']['content']
+    telegram_bot.send_message(user_id, response)
 
 if __name__ == "__main__":
     telegram_bot.polling()
