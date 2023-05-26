@@ -25,10 +25,36 @@ previous_messages = []
 
 # Telegram speech recognition logic
 @telegram_bot.message_handler(content_types=["voice"])
-def voice_to_text(message: telebot.types.Message) -> str:
+def telegram_handler(message: telebot.types.Message):
+    # Grab user_id from the request
     user_id = message.chat.id
-    audio_file_info = telegram_bot.get_file(message.voice.file_id)
-    audio_file = requests.get(f"https://api.telegram.org/file/bot{TELEGRAM_BOT_TOKEN}/{audio_file_info.file_path}")
+    
+    # Fetch remote location for the user's voice file
+    voice_file_info = telegram_bot.get_file(message.voice.file_id)
+    voice_file_path = voice_file_info.file_path
+
+    # Convert voice file to text
+    user_request_text= convert_voice_to_text(voice_file_path)
+
+    # Send text to ChatGPT API
+    chatgpt_response = request_chatgpt(user_request_text, user_id)
+
+    # Send ChatGPT's response to telegram
+    telegram_bot.send_message(user_id, chatgpt_response)
+
+    # Convert ChatGPT's response to Telegram voice file and send via telegram bot
+    voice_file_name = convert_text_to_voice(chatgpt_response)
+    voice = open(voice_file_name, "rb")
+    telegram_bot.send_voice(message.chat.id, voice)
+    voice.close()
+
+    # Remove ChatGPT's voice file once sent
+    os.remove("voice_message_reply.ogg")
+
+
+
+def convert_voice_to_text(voice_file_path: str) -> str:
+    audio_file = requests.get(f"https://api.telegram.org/file/bot{TELEGRAM_BOT_TOKEN}/{voice_file_path}")
 
     # Save file locally
     with open("voice_message.ogg", "wb") as f:
@@ -37,7 +63,6 @@ def voice_to_text(message: telebot.types.Message) -> str:
     # Convert to WAV so we can transcribe the audio using 
     sound = AudioSegment.from_file("voice_message.ogg", format="ogg")
     sound.export("voice_message.wav", format="wav")
-
 
     # Use SpeechRecognition w/ Google Speech Recognition APIs to transcribe the voice message
     r = sr.Recognizer()
@@ -50,12 +75,34 @@ def voice_to_text(message: telebot.types.Message) -> str:
     os.remove("voice_message.ogg")
     os.remove("voice_message.wav")
 
-    send_message(text, user_id)
-
     return text
 
+def convert_text_to_voice(text: str) -> str:
+    # Use Google Text-to-Speech to convert the text to speech
+    tts = gTTS(text, lang="zh")
+    tts.save("voice_message.mp3")
 
-def send_message(text: str, user_id: str):
+    # Use pydub to convert to OGG format
+    ogg_file_name = "voice_message_reply.ogg"
+    sound = AudioSegment.from_mp3("voice_message.mp3")
+    sound.export(ogg_file_name, format="mp3")
+
+    os.remove("voice_message.mp3")
+
+    return ogg_file_name
+
+
+
+    # Return text back to the user as a Telegram voice file
+    voice = open("voice_message_reply.ogg", "rb")
+    telegram_bot.send_voice(text.chat.id, voice)
+    voice.close()
+
+    os.remove("voice_message_reply.ogg")
+
+
+
+def request_chatgpt(text: str, user_id: str) -> str:
     previous_messages.append({"role": "user", "content": text})
     base_prompt = openai_agent.base_prompt
     message_to_send = base_prompt + previous_messages 
@@ -73,12 +120,33 @@ def send_message(text: str, user_id: str):
     )
 
     response = raw_response['choices'][0]['message']['content']
-    
+
     print(f"ChatGPT responded with: {response}")
 
     previous_messages.append({"role":"assistant", "content": response})
 
-    telegram_bot.send_message(user_id, response)
+    return response
+
+
+
+def response_text_to_audio(response_text: str, chat_id: str) -> AudioSegment:
+    # Use Google Text to Speech APIs to convert the text to speech
+    tts = gTTS(response_text, lang="zh")
+    tts.save("voice_message.mp3")
+
+    # Use pydub to convert to OGG format 
+    sound = AudioSegment.from_mp3("voice_message.mp3")
+    sound.export("voice_message_reply.ogg", format="mp3")
+
+    return 
+
+
+
+    # Send the transcribed text back to the user as a voice
+    voice = open("voice_message_reply.ogg", "rb")
+    telegram_bot.send_voice(message.chat.id, voice)
+    voice.close()
+
 
 if __name__ == "__main__":
     telegram_bot.polling()
