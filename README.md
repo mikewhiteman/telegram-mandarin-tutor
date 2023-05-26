@@ -8,10 +8,15 @@ The general concept is quite simple:
 * Connect the Telegram bot to an LLM agent (in this case ChatGPT) who is instructed to act as a language tutor
 * Use open source TTS libraries to convert the user's voice into text for ChatGPT and on the reverse path convert ChatGPT's text response a  voice output
 
-## Demo (Coming soon!)
-<img src="/screenshot.JPG" width="350">
+## Demo
 
-## Installation
+Checkout a quick demo where I'm having a basic conversation with the LLM bot in Mandarin (apologies in advance for my poor Mandarin skills!)
+
+https://github.com/mikewhiteman/telegram-mandarin-tutor/assets/46505379/e180f8ff-061b-4f93-8570-ccd98e4df75f
+
+I find the dynamic nature of the LLM conversations fascinating - the topics tend to vary significantly and often feel very similar to real speaking practice (see the 1:05 mark where I pretended to not understand and requested the tutor repeat the question in English). The converations 
+
+## How do I set this up?
 * `pip install -r requirements.txt`
 * Populate the `.env` file with your API keys for Telegram and ChatGPT
 * If you wish to speak with the bot in Mandarin, you're done! Just run `python3 app.py` and start chatting with the bot using the Telegram web or mobile app. 
