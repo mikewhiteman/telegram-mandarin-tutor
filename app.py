@@ -91,17 +91,6 @@ def convert_text_to_voice(text: str) -> str:
 
     return ogg_file_name
 
-
-
-    # Return text back to the user as a Telegram voice file
-    voice = open("voice_message_reply.ogg", "rb")
-    telegram_bot.send_voice(text.chat.id, voice)
-    voice.close()
-
-    os.remove("voice_message_reply.ogg")
-
-
-
 def request_chatgpt(text: str, user_id: str) -> str:
     previous_messages.append({"role": "user", "content": text})
     base_prompt = openai_agent.base_prompt
