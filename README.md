@@ -1,7 +1,7 @@
 # Mandarin Chinese Language Tutor w/ Telegram + ChatGPT
 
 ## Background
-This is a proof of concept demonstrating how you can build a **conversation-based language tutor** using Telegram, ChatGPT, and a few free text-to-speech libraries. I've seen a few demos highlighting text-based convos with a LLM language tutor but felt like the experience could be greatly improved if you could actually practice _speaking_ directly with the bot.  I've been studying Mandarin for a little bit now and figured I'd try this out as a potential learning tool.
+This is a proof of concept demonstrating how you can build a **conversation-based language tutor** using Telegram, ChatGPT, and a few free text-to-speech libraries. I've seen a few demos highlighting text-based conversations with a LLM language tutor but felt like the experience could be greatly improved if you could actually practice _speaking_ with the bot.  I've been studying Mandarin for a bit and decided I'd try this out as a potential learning tool.
 
 The general concept is quite simple:
 * Setup a Telegram bot which natively supports sending/receiving audio files
@@ -10,7 +10,9 @@ The general concept is quite simple:
 
 ## Demo
 
-Here's a quick demo where I'm having a basic conversation with the LLM bot in Mandarin (apologies in advance for my poor Mandarin skills!)
+Here's a quick demo where I'm having a basic conversation with the tutor bot in Mandarin (apologies in advance for my poor Mandarin skills!)
+
+### (Unmute Audio)
 
 https://github.com/mikewhiteman/telegram-mandarin-tutor/assets/46505379/e180f8ff-061b-4f93-8570-ccd98e4df75f
 
