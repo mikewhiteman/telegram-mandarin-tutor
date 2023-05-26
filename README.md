@@ -39,7 +39,7 @@ Yes absolutely, there are just a few things you'll need to change:
 ```
 You can find a full list of supported languages for Google's Speech Recognition APIs [here](https://codelabs.developers.google.com/codelabs/cloud-speech-text-python3#5)
 
-3. Update the Google Text to Speech language (gTTS) library setting in `response_text_to_audio()`:
+3. Update the `lang` setting in the Google Text to Speech (gTTS) library used by `response_text_to_audio()`:
 
 ```
     # Use Google Text-to-Speech to convert the text to speech
