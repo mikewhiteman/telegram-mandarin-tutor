@@ -1,9 +1,9 @@
 import os
 import openai
-from dotenv import load_dotenv
 import telebot
 import requests
 import speech_recognition as sr
+from dotenv import load_dotenv
 from gtts import gTTS
 from pydub import AudioSegment
 from chatgpt_settings import ChatgptAgent
