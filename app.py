@@ -114,18 +114,5 @@ def request_chatgpt(text: str, user_id: str) -> str:
     return response
 
 
-
-def response_text_to_audio(response_text: str, chat_id: str) -> AudioSegment:
-    # Use Google Text to Speech APIs to convert the text to speech
-    tts = gTTS(response_text, lang="zh")
-    tts.save("voice_message.mp3")
-
-    # Use pydub to convert to OGG format 
-    sound = AudioSegment.from_mp3("voice_message.mp3")
-    sound.export("voice_message_reply.ogg", format="mp3")
-
-    return 
-
-
 if __name__ == "__main__":
     telegram_bot.polling()
