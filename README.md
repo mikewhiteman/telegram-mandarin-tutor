@@ -10,9 +10,9 @@ The general concept is quite simple:
 
 ## Demo
 
-Here's a quick demo where I'm having a basic conversation with the tutor bot in Mandarin (apologies in advance for my poor Mandarin skills!)
+Here's a quick demo where I'm having a basic conversation with the tutor bot in Mandarin.
 
-### (Unmute Audio)
+### (Unmute Audio - apologies for my poor Mandarin skills!)
 
 https://github.com/mikewhiteman/telegram-mandarin-tutor/assets/46505379/e180f8ff-061b-4f93-8570-ccd98e4df75f
 
@@ -20,7 +20,9 @@ I find the dynamic nature of the LLM conversations fascinating - the topics tend
 
 ## How do I set this up?
 * `pip install -r requirements.txt`
-* Populate the `.env` file with your API keys for Telegram and ChatGPT
+* Create a [Telegram bot](https://core.telegram.org/bots/api) and generate an API key
+* Create an [OpenAI Platform account](https://platform.openai.com) and generate an API key
+* Populate an `.env` file (or configure environment variables) with your API keys for Telegram and ChatGPT
 * If you wish to speak with the bot in Mandarin, you're done! Just run `python3 app.py` and start chatting with the bot using the Telegram web or mobile app. 
 
 ## Can I use this for other languages besides Mandarin?
