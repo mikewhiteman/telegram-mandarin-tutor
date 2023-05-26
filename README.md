@@ -27,7 +27,7 @@ I find the dynamic nature of the LLM conversations fascinating - the topics tend
 
 ## Can I use this for other languages besides Mandarin?
 Yes absolutely, there are just a few things you'll need to change:
-1. Update the `base_prompt` in [chatgpt_settings.py](chatgpt_settings.py)
+1. Update the `base_prompt` in [chatgpt_agent.py](chatgpt_agent.py)
 2. Update the language variable in `convert_voice_to_text()`:
 
 ```
