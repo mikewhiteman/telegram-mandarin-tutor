@@ -13,7 +13,7 @@ The general concept is quite simple:
 
 ## Installation
 * `pip install -r requirements.txt`
-* Populate the the .env file with your API keys for Telegram and ChatGPT
+* Populate the [.env](.env) file with your API keys for Telegram and ChatGPT
 * If you wish to speak with the bot in Mandarin, you're done!
 
 ## Can I use this for other languages besides Mandarin?
