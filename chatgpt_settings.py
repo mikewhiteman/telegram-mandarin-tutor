@@ -7,5 +7,4 @@ class ChatgptAgent:
         self.frequency_penalty = frequency_penalty
         self.presence_penality = presence_penalty
         self.base_prompt = [{"role": "system", "content": "Hi ChatGPT!"}]
-        
 
