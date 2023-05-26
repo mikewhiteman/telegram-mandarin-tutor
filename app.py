@@ -6,7 +6,7 @@ import requests
 import speech_recognition as sr
 from gtts import gTTS
 from pydub import AudioSegment
-from chatgpt_settings import ChatgptAgent
+from chatgpt_agent import ChatgptAgent
 
 load_dotenv()
 
