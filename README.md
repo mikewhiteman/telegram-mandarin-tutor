@@ -26,7 +26,7 @@ I find the dynamic nature of the LLM conversations fascinating - the topics tend
 * If you wish to speak with the bot in Mandarin, you're done! Just run `python3 app.py` and start chatting with the bot using the Telegram web or mobile app. 
 
 ## Can I use this for other languages besides Mandarin?
-Yes absolutely, there's just a few things you'll need to change:
+Yes absolutely, there are just a few things you'll need to change:
 1. Update the `base_prompt` in [chatgpt_settings.py](chatgpt_settings.py)
 2. Update the language variable in `convert_voice_to_text()`:
 
