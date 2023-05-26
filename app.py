@@ -16,7 +16,7 @@ openai.api_key = os.getenv('OPENAPI_KEY')
 
 #Initialize Telegram/OpenAI agents
 telegram_bot = telebot.TeleBot(TELEGRAM_BOT_TOKEN)
-openai_agent = ChatgptAgent()
+chatgpt_agent = ChatgptAgent()
 
 # This will store previous messages - hacky but works for 1:1 convos w/o long-term memory
 global previous_messages
@@ -93,7 +93,7 @@ def convert_text_to_voice(text: str) -> str:
 
 def request_chatgpt(text: str, user_id: str) -> str:
     previous_messages.append({"role": "user", "content": text})
-    base_prompt = openai_agent.base_prompt
+    base_prompt = chatgpt_agent.base_prompt
     message_to_send = base_prompt + previous_messages 
 
     print(f"Sending the following message to ChatGPT: {message_to_send}")
@@ -101,11 +101,8 @@ def request_chatgpt(text: str, user_id: str) -> str:
     raw_response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=message_to_send,
-        temperature=0.7,
-        max_tokens=256,
-        top_p=1,
-        frequency_penalty=0,
-        presence_penalty=0
+        temperature=chatgpt_agent.temperature,
+        max_tokens=chatgpt_agent.max_tokens
     )
 
     response = raw_response['choices'][0]['message']['content']
@@ -128,13 +125,6 @@ def response_text_to_audio(response_text: str, chat_id: str) -> AudioSegment:
     sound.export("voice_message_reply.ogg", format="mp3")
 
     return 
-
-
-
-    # Send the transcribed text back to the user as a voice
-    voice = open("voice_message_reply.ogg", "rb")
-    telegram_bot.send_voice(message.chat.id, voice)
-    voice.close()
 
 
 if __name__ == "__main__":
