@@ -52,7 +52,6 @@ def telegram_handler(message: telebot.types.Message):
     os.remove("voice_message_reply.ogg")
 
 
-
 def convert_voice_to_text(voice_file_path: str) -> str:
     audio_file = requests.get(f"https://api.telegram.org/file/bot{TELEGRAM_BOT_TOKEN}/{voice_file_path}")
 
@@ -106,13 +105,10 @@ def request_chatgpt(text: str, user_id: str) -> str:
     )
 
     response = raw_response['choices'][0]['message']['content']
-
+    previous_messages.append({"role":"assistant", "content": response})
     print(f"ChatGPT responded with: {response}")
 
-    previous_messages.append({"role":"assistant", "content": response})
-
     return response
-
 
 if __name__ == "__main__":
     telegram_bot.polling()
