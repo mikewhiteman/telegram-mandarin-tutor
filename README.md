@@ -28,7 +28,7 @@ I find the dynamic nature of the LLM conversations fascinating - the topics tend
 ## Can I use this for other languages besides Mandarin?
 Yes absolutely, there are just a few things you'll need to change:
 1. Update the `base_prompt` in [chatgpt_agent.py](chatgpt_agent.py)
-2. Update the language variable in `convert_voice_to_text()`:
+2. Update the language paramter in `convert_voice_to_text()` to a supported language:
 
 ```
     r = sr.Recognizer()
@@ -39,7 +39,7 @@ Yes absolutely, there are just a few things you'll need to change:
 ```
 You can find a full list of supported languages for Google's Speech Recognition APIs [here](https://codelabs.developers.google.com/codelabs/cloud-speech-text-python3#5)
 
-3. Update the `lang` setting in the Google Text to Speech (gTTS) library used by `response_text_to_audio()`:
+3. Update the `lang` parameter in the Google Text to Speech (gTTS) library used by `response_text_to_audio()`:
 
 ```
     # Use Google Text-to-Speech to convert the text to speech
@@ -47,4 +47,4 @@ You can find a full list of supported languages for Google's Speech Recognition 
     tts.save("voice_message.mp3")
 ```
 
-Note: The easiest way to get a list of available languages is to print them with `gtts-cli --all`
+Note: The easiest way to get a list of available gTTS languages is to print them with `gtts-cli --all`
