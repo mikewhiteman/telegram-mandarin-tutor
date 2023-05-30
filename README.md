@@ -14,9 +14,9 @@ Here's a quick demo where I'm having a basic conversation with the tutor bot in 
 
 ### (Unmute Audio - apologies for my poor Mandarin skills!)
 
-https://github.com/mikewhiteman/telegram-mandarin-tutor/assets/46505379/9d61c9aa-4766-4d7c-9110-47cae1c3bd15
+https://github.com/mikewhiteman/telegram-mandarin-tutor/assets/46505379/f1a77ae7-536f-44b2-b15b-91c3b15a7dd8
 
-I find the dynamic nature of the LLM conversations fascinating - the topics tend to vary significantly (particularly if you change ChatGPT's temperature setting) and often feel very similar to real speaking practice, where you can choose to switch into English if you don't understand a topic (see the 0:25 mark where I requested the tutor repeat the question in English).
+I find the dynamic nature of the LLM conversations fascinating - the topics tend to vary significantly (particularly if you play with ChatGPT's temperature setting) and often feel very similar to real speaking practice, particulary since you can switch into English if you don't understand a topic (see the 0:25 mark where I requested the tutor repeat the question in English).
 
 ## How do I set this up?
 * `pip install -r requirements.txt`
