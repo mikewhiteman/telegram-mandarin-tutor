@@ -51,5 +51,6 @@ Note: The easiest way to get a list of available gTTS languages is to print them
 
 
 ## To Do:
-- [ ] Add support for multiple languages (ultimately a rather simple mapping exercise across the supported text <> to speech language libraries)
-- [ ] Replace gTTS library with more realistic sounding alternatives. gTTS is a great, free offering but I think I can find fairly inexpensive alternatives that would provide a much more realistic sounding voice for the tutor. 
+- [ ] Add support for multiple languages (ultimately a rather simple mapping exercise across the supported languages in the Speech Recognition & TTS libraries)
+- [ ] Replace gTTS library with more realistic sounding alternatives. gTTS is a fantastic free service but I think I can find fairly inexpensive alternatives that would provide a much more realistic sounding voice for the Mandarin tutor. 
+- [ ] Build conversation caching so the bot can recall recent conversations and hold conversations with multiple users at once 
