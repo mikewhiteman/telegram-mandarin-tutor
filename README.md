@@ -19,7 +19,7 @@ https://github.com/mikewhiteman/telegram-mandarin-tutor/assets/46505379/f1a77ae7
 While it's not a substitute for real speaking practice, I find the dynamic nature of the LLM conversations fascinating. The topics tend to vary significantly (particularly if you play with ChatGPT's temperature setting) and often feel very similar to real speaking practice, particularly since you can switch into English if you don't understand a topic (see the 0:25 mark where I requested the tutor repeat the question in English).
 
 ## How do I set this up?
-* `pip install -r requirements.txt`
+* Python 3 `pip install -r requirements.txt`
 * Create a [Telegram bot](https://core.telegram.org/bots/api) and generate an API key
 * Create an [OpenAI Platform account](https://platform.openai.com) and generate an API key
 * Populate an `.env` file (or configure environment variables) with your API keys for Telegram and ChatGPT
