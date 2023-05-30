@@ -14,9 +14,9 @@ Here's a quick demo where I'm having a basic conversation with the tutor bot in 
 
 ### (Unmute Audio - apologies for my poor Mandarin skills!)
 
-https://github.com/mikewhiteman/telegram-mandarin-tutor/assets/46505379/e180f8ff-061b-4f93-8570-ccd98e4df75f
+https://github.com/mikewhiteman/telegram-mandarin-tutor/assets/46505379/9d61c9aa-4766-4d7c-9110-47cae1c3bd15
 
-I find the dynamic nature of the LLM conversations fascinating - the topics tend to vary significantly and often feel very similar to real speaking practice, where you can choose to switch into English if you don't understand a topic (see the 1:05 mark where I requested the tutor repeat the question in English).
+I find the dynamic nature of the LLM conversations fascinating - the topics tend to vary significantly (particularly if you change ChatGPT's temperature setting) and often feel very similar to real speaking practice, where you can choose to switch into English if you don't understand a topic (see the 0:25 mark where I requested the tutor repeat the question in English).
 
 ## How do I set this up?
 * `pip install -r requirements.txt`
@@ -48,3 +48,9 @@ You can find a full list of supported languages for Google's Speech Recognition 
 ```
 
 Note: The easiest way to get a list of available gTTS languages is to print them with `gtts-cli --all`
+
+
+## To Do:
+- [ ] Add support for multiple langauges (ultimately a rather simple mapping exercise across the supported text <> to speech language libraries)
+- [ ] Replace gTTS library with more realistic sounding alternatives. gTTS is a great, free offering but I think I can find fairly inexpensive alternatives that would provide a much more realistic sounding voice for the tutor. 
+
