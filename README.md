@@ -5,7 +5,7 @@ This is a proof of concept demonstrating how you can build a **voice-based langu
 
 ## Demo
 
-Here's a quick demo where I'm having a basic conversation with the tutor bot in Mandarin.
+Here's a quick demo where I'm having a basic conversation with the ChatGPT-powered tutor in Mandarin.
 
 ### (Unmute Audio - apologies for my poor Mandarin skills!)
 
