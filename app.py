@@ -61,7 +61,7 @@ def convert_voice_to_text(voice_file_path: str) -> str:
     with open("voice_message.ogg", "wb") as f:
         f.write(audio_file.content)
 
-    # Convert to WAV so we can transcribe the audio using 
+    # Convert to WAV so we can transcribe the audio
     sound = AudioSegment.from_file("voice_message.ogg", format="ogg")
     sound.export("voice_message.wav", format="wav")
 
@@ -72,7 +72,7 @@ def convert_voice_to_text(voice_file_path: str) -> str:
         text = r.recognize_google(audio_data, language="zh-CN")
         print(f"Converted audio to the following text: {text}")
 
-    # Clean-up text files
+    # Clean up text files
     os.remove("voice_message.ogg")
     os.remove("voice_message.wav")
 
