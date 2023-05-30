@@ -9,7 +9,7 @@ Here's a quick demo where I'm having a basic conversation with the ChatGPT-power
 
 ### (Unmute Audio - apologies for my poor Mandarin skills!)
 
-https://github.com/mikewhiteman/telegram-mandarin-tutor/assets/46505379/f1a77ae7-536f-44b2-b15b-91c3b15a7dd8
+https://github.com/mikewhiteman/telegram-mandarin-tutor/assets/46505379/c1025346-6968-4867-a02c-e433803c2fc1
 
 While it's not a substitute for real speaking practice, I find the dynamic nature of the LLM conversations fascinating. The topics tend to vary significantly (particularly if you play with ChatGPT's temperature setting) and often feel very similar to real speaking practice, particularly since you can switch into English if you don't understand a topic (see the 0:25 mark where I requested the tutor repeat the question in English).
 
